@@ -8,17 +8,17 @@ jobs:
   #  o que vai ser feito nessa pipeline
   #  só teremos um job: rodar os testes
   cypress-run: 
+    name: Cypress run
     #  maquina que será executado
     runs-on: ubuntu-latest
 
     # passo a passo para rodar os testes
     steps: 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      # exemplo de execução no terminal
-      -name: instalar dependencias do projeto
-       run: echo Francisco Araujo
+      - name: Instalar dependencias do projeto
+        run: npm install
 
       # execução e configuração do projeto
       - name: Run testes
