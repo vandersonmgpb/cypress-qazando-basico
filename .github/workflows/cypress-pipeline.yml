@@ -2,9 +2,7 @@
 name: Run Basic Testes
 
 # em que momento será executada
-on: 
-  pull_request:
-    branches: [master]
+on: [push]
 
 jobs: 
   #  o que vai ser feito nessa pipeline
@@ -15,9 +13,8 @@ jobs:
 
     # passo a passo para rodar os testes
     steps: 
-      #  clone do projeto
-      - name: Checkout/Clone do projeto
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v4
 
       # exemplo de execução no terminal
       -name: instalar dependencias do projeto
@@ -25,7 +22,7 @@ jobs:
 
       # execução e configuração do projeto
       - name: Run testes
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v6
         with:
           record: true
         env: 
